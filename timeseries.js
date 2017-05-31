@@ -1,3 +1,20 @@
+// Authenticate via OAuth
+var tumblr = require('tumblr.js');
+var client = tumblr.createClient({
+  consumer_key: 'DfAbrxfEQ3avgPoa9y3vbOpy0hGupNM1JIsCIHuU4xLsjkdyDN',
+  consumer_secret: 'aClDf6IuM5lMPETdNhcmQZ3EkRWry3k9h5bPfJvA54rrycKzF0',
+  token: 'Uub51Rqo9WifZkvH12N70z9M5xtU8BmjXQoaVDJyAFKw52cgqK',
+  token_secret: 'eF4KrCch1poPd8yZPd07Jaoj29BcIb3VJybKwr3oXPJ5Qum8aa'
+});
+
+// Make the request
+client.userInfo(function (err, data) {
+    var blogName = prompt("Please enter your blog url prefix", "cecilspeaks");
+    client.blogPosts(blogName).forEach(function(blogPost) {
+        console.log(blogPost.name);
+    }
+});
+
 /* TIMESERIES - A simple D3.js timeseries.
 *   call timeseries(<classd>, <data>, <enableBrush>) with the following parameters
 *   classd - the class name of your container div for the timeseries to attach to
