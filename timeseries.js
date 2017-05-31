@@ -12,7 +12,7 @@ client.userInfo(function (err, data) {
     var blogName = prompt("Please enter your blog url prefix", "cecilspeaks");
     client.blogPosts(blogName).forEach(function(blogPost) {
         console.log(blogPost.name);
-    }
+    });
 });
 
 /* TIMESERIES - A simple D3.js timeseries.
